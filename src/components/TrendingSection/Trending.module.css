@@ -1,0 +1,54 @@
+.trending {
+  padding: 3.5vw 8vw;
+  /* background-color: orange; */
+}
+.title {
+  display: flex;
+  align-items: center;
+  width: 12vw;
+  justify-content: space-around;
+  padding: 1.5vw 0;
+  /* background-color: red; */
+}
+.trending_cards {
+  /* background-color: royalblue; */
+  display: flex;
+  gap: 3vw;
+  flex-wrap: wrap;
+}
+.card {
+  max-width: 24vw;
+  /* background-color: purple; */
+  display: flex;
+  justify-content: space-between;
+  max-height:10vw ;
+}
+.card > h6 {
+  width: 6vw;
+  height: 3vw;
+  margin-top: 0%;
+  font-size: 1.4vw;
+  opacity: 0.9;
+  color: grey;
+}
+
+.dp {
+  height: 2vw;
+  display: flex;
+  align-items: center;
+
+}
+.dp>img{
+    height: 1.8vw;
+    border-radius: 50%;
+    margin-right: 0.5vw;
+}
+.rig{
+    margin-left: 0.7vw;
+}
+.rig > h4 {
+  margin-top: 0.4vw;
+}
+.rig > h5 {
+  margin-top: -0.3vw;
+}

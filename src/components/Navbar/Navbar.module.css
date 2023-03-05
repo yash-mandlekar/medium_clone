@@ -1,0 +1,171 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1vmax 8vmax;
+  background-color: transparent;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  background-color: #ffc017;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 2s;
+  font-family: sans-serif;
+}
+.bgWhite {
+  background-color: white !important;
+}
+.bgGreen {
+  background-color: green !important;
+}
+.left {
+  display: flex;
+  align-items: center;
+
+  border-bottom: none;
+}
+.nav  a{
+  text-decoration: none;
+  color: #2b2727;
+}
+.left > img {
+  height: 5vh;
+  mix-blend-mode: darken;
+}
+.left h2 {
+  padding: 0 0.5vmax;
+}
+.right {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 2vmax;
+  border-bottom: none;
+}
+
+.right > h5 {
+  white-space: nowrap;
+  /* background-color: red; */
+}
+
+/* logged in user navbar */
+.Lnav {
+  width: 100%;
+  height: 7vh;
+  background-color: rgb(255, 255, 255);
+  padding: 0px 5px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(219, 218, 218, 0.514);
+}
+
+.Lnav > svg {
+  height: 1.6vw;
+}
+
+.Lleft {
+  display: flex;
+  width: 33vmax;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.searchBar {
+  width: 27vmax;
+  height: 5vh;
+
+  border-radius: 20px;
+  background-color: #fff;
+  padding-left: 0.8vmax;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.searchBar > input {
+  padding-left: 10px;
+  width: 25vmax;
+  height: inherit;
+  outline: none;
+  border: none;
+  border-radius: 20px;
+}
+
+.Lwrite {
+  width: 5vmax;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: fit-content;
+}
+
+.Lright {
+  width: 20vmax;
+  color: #525252;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  position: relative;
+}
+.Lright > a{
+  text-decoration: none;
+  color: #525252;
+}
+
+.Lupper {
+  width: 5vmax;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+}
+
+.Lupper > img {
+  width: 2.5vmax;
+  height: 2.5vmax;
+  border-radius: 100px;
+  background-color: #838383;
+}
+
+.dropDown {
+  position: absolute;
+  width: 20vmax;
+  right: 2vmax;
+  top: 4vmax;
+  background-color: rgb(243, 241, 241);
+  border-radius: 2px;
+  padding: 1.8vmax 2vmax;
+  border: 1px solid rgb(236, 236, 236);
+  font-size: 1vw;
+  /* transition: all cubic-bezier(0.19, 1, 0.22, 1) 2s; */
+}
+
+.dropDown > a {
+  color: rgba(80, 80, 80, 0.849);
+  text-decoration: none;
+}
+
+/* inside drop down */
+.list {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1vmax;
+  background-color: rgba(255, 255, 255, 0);
+  padding-bottom: 1vw;
+}
+
+.line {
+  border-bottom: 1px solid rgba(199, 199, 199, 0.548);
+}
+
+.newSec {
+  padding-top: 2vh;
+}
+
+.last {
+  padding-top: 1vmax;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

@@ -1,0 +1,86 @@
+
+  
+  .picks {
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vmax;
+    padding-bottom: 1vmax;
+  }
+  .pick > h6 {
+    display: inline-flex;
+    align-items: center;
+    gap: 1vmax;
+    padding-bottom: 0.5vmax;
+    max-width: 22vmax;
+  }
+  .pick > h6 > span > img {
+    height: 2vmax;
+    width: 2vmax;
+    border-radius: 50%;
+  }
+  .pick > h5 {
+    font-weight: bold;
+    max-width: inherit;
+    line-height: 1.4vmax;
+  }
+  .full_list {
+    color: green;
+  }
+  .categories_links {
+    position: relative;
+    /* background-color:teal; */
+  }
+  
+  .links {
+    padding-top: 1.2vw;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1vw;
+    max-width: 26vw;
+    justify-content: space-between;
+    white-space: nowrap;
+  }
+  
+  .options>h5 {
+      width: fit-content;
+      color: rgba(116, 116, 116, 0.726);
+  }
+  
+  .options {
+      display: flex;
+      padding: 3vh 0;
+      max-width: 26vmax;
+      flex-wrap: wrap;
+      gap: 1vw;
+      justify-content: flex-start;
+  }
+  .follow_recomand{
+      display: flex;
+      flex-direction: column;
+      gap: 2vh;
+  }
+  .follow_recomand>h4{
+      padding-bottom: 1vmax;
+  }
+  
+  .rec_card{
+      display: flex;
+      gap: 1vmax;
+      align-items: center;
+  }
+  .rec_card>img{
+      height: 3vmax;
+      width: 3vmax;
+      border-radius: 50%;
+  }
+  .follow_btn{
+      background-color: transparent;
+      border: 1px solid grey;
+      padding: 0.5vmax 1vmax;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 6vmax;
+      color: #000;
+  }

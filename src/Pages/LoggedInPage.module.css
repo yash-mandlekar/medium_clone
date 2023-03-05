@@ -1,0 +1,38 @@
+.wrap {
+  width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
+
+.left {
+  width: 60vmax;
+  display: flex;
+  justify-content: center;
+  height: 87vh;
+}
+
+.right {
+  width: 30vmax;
+  height: 87vh;
+  overflow-y: scroll;
+  padding: 1vmax 1vmax;
+}
+
+.topBar {
+  width: 50vmax;
+  height: 9vh;
+  padding-top: 2vh;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1px solid rgb(175, 175, 175);
+  display: flex;
+  align-items: center;
+  gap: 1.5vmax;
+  top: 7%;
+  position: fixed;
+}
+
+.articles {
+  margin-top: 1.5vh;
+  margin-left: -7vw;
+}
