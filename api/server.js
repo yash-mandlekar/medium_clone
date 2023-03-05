@@ -4,7 +4,7 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 4000;
 
 // databaseconnection
 require("./models/database").databaseconnection();
@@ -49,4 +49,4 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-app.listen(PORT||4000, () => console.log(`server running on port: ${PORT}`));
+app.listen(PORT, () => console.log(`server running on port: ${PORT}`));
