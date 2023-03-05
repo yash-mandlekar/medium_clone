@@ -27,7 +27,7 @@ app.use(
 
 // app.use(require("cors")({ credentials: true }));
 
-app.use("/", indexRouter);
+app.use("/api/", indexRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -49,4 +49,4 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-app.listen(PORT, () => console.log(`server running on port: ${PORT}`));
+app.listen(PORT||4000, () => console.log(`server running on port: ${PORT}`));
