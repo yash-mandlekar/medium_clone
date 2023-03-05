@@ -22,7 +22,13 @@ app.use(
   })
 );
 app.use(
-  require("cors")({ origin: "http://localhost:3000", credentials: true })
+  require("cors")({
+    origin: [
+      "https://medium-clone-three-delta.vercel.app",
+      "http://localhost:3000",
+    ],
+    credentials: true,
+  })
 );
 
 // app.use(require("cors")({ credentials: true }));
