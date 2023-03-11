@@ -52,9 +52,10 @@
   padding-bottom: 1vw;
 }
 .content img{
-  width: 100%;
+  width: 50%;
   height: 100%;
   object-fit: cover;
+  padding: 1vmax 0;
 }
 .footer {
   display: flex;
