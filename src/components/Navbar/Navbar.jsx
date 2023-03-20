@@ -32,7 +32,7 @@ const Navbar = () => {
           <img src={medium_logo} alt="logo" />
           <h2>Medium</h2>
         </Link>
-        <div className={`${module.right} `}>
+        <div className={`${module.right}`}>
           <h5>Our Story</h5>
           <h5>Membership</h5>
           <h5>Write</h5>

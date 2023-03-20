@@ -16,47 +16,50 @@ const Article = ({ coverWidth, coverTop, posterWidth, width }) => {
         <div className={`${module.articles}`} style={{ width: width }}>
           {blogs?.map((blog, i) => (
             <div key={i} className={`${module.article}`}>
-              <div className="lef">
-                <div className={`${module.by_who} cp`}
-                  onClick={() => navigate(`/user/${blog.author.username}`)}
+              <div
+                className={`${module.by_who} cp`}
+                onClick={() => navigate(`/user/${blog.author.username}`)}
+              >
+                <img src={blog.author.avtar.url} alt="" />
+                <h5>{blog.author.username}</h5>
+              </div>
+              <div
+                className={`cp ${module.content} ${
+                  !isLoggedIn && module.content2
+                } ${width === "100%" && module.content2}`}
+                dangerouslySetInnerHTML={createMarkup(blog.data)}
+                onClick={() => navigate(`/story/${blog._id}`)}
+              ></div>
+              <div className={`${module.footer}`}>
+                <h6>
+                  {new Date(Date.now()).getDate() -
+                    new Date(blog?.createdAt).getDate() >
+                  0
+                    ? new Date(Date.now()).getDate() -
+                      new Date(blog?.createdAt).getDate() +
+                      " days ago"
+                    : new Date(Date.now()).getHours() -
+                        new Date(blog?.createdAt).getHours() >
+                      0
+                    ? new Date(Date.now()).getHours() -
+                      new Date(blog?.createdAt).getHours() +
+                      " hours ago"
+                    : new Date(Date.now()).getMinutes() -
+                      new Date(blog?.createdAt).getMinutes() +
+                      " minutes ago"}
+                </h6>
+                <svg
+                  width="25"
+                  height="25"
+                  viewBox="0 0 25 25"
+                  fill="none"
+                  className="lz"
                 >
-                  <img src={blog.author.avtar.url} alt="" />
-                  <h5>{blog.author.username}</h5>
-                </div>
-                <div
-                  className={`cp ${module.content} ${!isLoggedIn && module.content2} ${width==="100%" && module.content2}`}
-                  dangerouslySetInnerHTML={createMarkup(blog.data)}
-                  onClick={() => navigate(`/story/${blog._id}`)}
-                ></div>
-                <div className={`${module.footer}`}>
-                  <h6>{new Date(Date.now()).getDate() -
-                  new Date(blog?.createdAt).getDate() >
-                0
-                  ? new Date(Date.now()).getDate() -
-                    new Date(blog?.createdAt).getDate() +
-                    " days ago"
-                  : new Date(Date.now()).getHours() -
-                      new Date(blog?.createdAt).getHours() >
-                    0
-                  ? new Date(Date.now()).getHours() -
-                    new Date(blog?.createdAt).getHours() +
-                    " hours ago"
-                  : new Date(Date.now()).getMinutes() -
-                    new Date(blog?.createdAt).getMinutes() +
-                    " minutes ago"}</h6>
-                  <svg
-                    width="25"
-                    height="25"
-                    viewBox="0 0 25 25"
-                    fill="none"
-                    className="lz"
-                  >
-                    <path
-                      d="M18 2.5a.5.5 0 0 1 1 0V5h2.5a.5.5 0 0 1 0 1H19v2.5a.5.5 0 1 1-1 0V6h-2.5a.5.5 0 0 1 0-1H18V2.5zM7 7a1 1 0 0 1 1-1h3.5a.5.5 0 0 0 0-1H8a2 2 0 0 0-2 2v14a.5.5 0 0 0 .8.4l5.7-4.4 5.7 4.4a.5.5 0 0 0 .8-.4v-8.5a.5.5 0 0 0-1 0v7.48l-5.2-4a.5.5 0 0 0-.6 0l-5.2 4V7z"
-                      fill="#292929"
-                    ></path>
-                  </svg>
-                </div>
+                  <path
+                    d="M18 2.5a.5.5 0 0 1 1 0V5h2.5a.5.5 0 0 1 0 1H19v2.5a.5.5 0 1 1-1 0V6h-2.5a.5.5 0 0 1 0-1H18V2.5zM7 7a1 1 0 0 1 1-1h3.5a.5.5 0 0 0 0-1H8a2 2 0 0 0-2 2v14a.5.5 0 0 0 .8.4l5.7-4.4 5.7 4.4a.5.5 0 0 0 .8-.4v-8.5a.5.5 0 0 0-1 0v7.48l-5.2-4a.5.5 0 0 0-.6 0l-5.2 4V7z"
+                    fill="#292929"
+                  ></path>
+                </svg>
               </div>
             </div>
           ))}
@@ -70,74 +73,74 @@ const Article = ({ coverWidth, coverTop, posterWidth, width }) => {
               <Roundedbtn
                 borderRadius="2px"
                 backgroundColor="white"
-                width="7vw"
+                padding=".6vmax"
                 inRound="Programming"
                 color="grey"
-                border="1px solid #cecece"
+                border="1px solid rgba(230, 230, 230, 1)"
               />
               <Roundedbtn
                 borderRadius="2px"
                 backgroundColor="white"
-                width="7vw"
+                padding=".6vmax"
                 inRound="Data Science"
                 color="grey"
-                border="1px solid #cecece"
+                border="1px solid rgba(230, 230, 230, 1)"
               />
               <Roundedbtn
                 borderRadius="2px"
                 backgroundColor="white"
-                width="7vw"
+                padding=".6vmax"
                 inRound="Technology"
                 color="grey"
-                border="1px solid #cecece"
+                border="1px solid rgba(230, 230, 230, 1)"
               />
               <Roundedbtn
                 borderRadius="2px"
                 backgroundColor="white"
-                width="9vw"
+                padding=".6vmax"
                 inRound="Self Improvement"
                 color="grey"
-                border="1px solid #cecece"
+                border="1px solid rgba(230, 230, 230, 1)"
               />
               <Roundedbtn
                 borderRadius="2px"
                 backgroundColor="white"
-                width="7vw"
+                padding=".6vmax"
                 inRound="Writing"
                 color="grey"
-                border="1px solid #cecece"
+                border="1px solid rgba(230, 230, 230, 1)"
               />
               <Roundedbtn
                 borderRadius="2px"
                 backgroundColor="white"
-                width="8vw"
+                padding=".6vmax"
                 inRound="Relationships"
                 color="grey"
-                border="1px solid #cecece"
+                border="1px solid rgba(230, 230, 230, 1)"
               />
               <Roundedbtn
                 borderRadius="2px"
                 backgroundColor="white"
-                width="10vw"
+                padding=".6vmax"
                 inRound="Machine Learning"
                 color="grey"
-                border="1px solid #cecece"
+                border="1px solid rgba(230, 230, 230, 1)"
               />
               <Roundedbtn
                 borderRadius="2px"
                 backgroundColor="white"
-                width="7vw"
+                padding=".6vmax"
                 inRound="Productivity"
                 color="grey"
-                border="1px solid #cecece"
+                border="1px solid rgba(230, 230, 230, 1)"
               />
               <Roundedbtn
                 borderRadius="2px"
                 backgroundColor="white"
-                width="7vw"
+                padding=".6vmax"
                 inRound="Politics"
                 color="grey"
-                border="1px solid #cecece"
+                border="1px solid rgba(230, 230, 230, 1)"
               />
             </div>
             <br />

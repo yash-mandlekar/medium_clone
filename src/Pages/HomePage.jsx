@@ -12,7 +12,9 @@ const HomePage = () => {
         <LoggedInPage />
       ) : (
         <>
-          <Header /> <Trending /> <Article />
+          {/* <Header />  */}
+          {/* <Trending />  */}
+          <Article />
         </>
       )}
     </>

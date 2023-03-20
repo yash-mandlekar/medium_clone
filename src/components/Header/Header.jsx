@@ -20,34 +20,34 @@ const Header = () => {
           />
         </div>
         <div className={`${HeaderCss.animations_text}`}>
-          <div class="loader">
-            <div class="load load1"></div>
-            <div class="load load2"></div>
-            <div class="load load3"></div>
-            <div class="load load4"></div>
-            <div class="load load5"></div>
-            <div class="load load6"></div>
-            <div class="load load7"></div>
-            <div class="load load8"></div>
-            <div class="load load9"></div>
-            <div class="load load1 dele"></div>
-            <div class="load load2 dele"></div>
-            <div class="load load3 dele"></div>
-            <div class="load load4 dele"></div>
-            <div class="load load5 dele"></div>
-            <div class="load load6 dele"></div>
-            <div class="load load7 dele"></div>
-            <div class="load load8 dele"></div>
-            <div class="load load9 dele"></div>
-            <div class="load load1 dele2"></div>
-            <div class="load load2 dele2"></div>
-            <div class="load load3 dele2"></div>
-            <div class="load load4 dele2"></div>
-            <div class="load load5 dele2"></div>
-            <div class="load load6 dele2"></div>
-            <div class="load load7 dele2"></div>
-            <div class="load load8 dele2"></div>
-            <div class="load load9 dele2"></div>
+          <div className="loader">
+            <div className="load load1"></div>
+            <div className="load load2"></div>
+            <div className="load load3"></div>
+            <div className="load load4"></div>
+            <div className="load load5"></div>
+            <div className="load load6"></div>
+            <div className="load load7"></div>
+            <div className="load load8"></div>
+            <div className="load load9"></div>
+            <div className="load load1 dele"></div>
+            <div className="load load2 dele"></div>
+            <div className="load load3 dele"></div>
+            <div className="load load4 dele"></div>
+            <div className="load load5 dele"></div>
+            <div className="load load6 dele"></div>
+            <div className="load load7 dele"></div>
+            <div className="load load8 dele"></div>
+            <div className="load load9 dele"></div>
+            <div className="load load1 dele2"></div>
+            <div className="load load2 dele2"></div>
+            <div className="load load3 dele2"></div>
+            <div className="load load4 dele2"></div>
+            <div className="load load5 dele2"></div>
+            <div className="load load6 dele2"></div>
+            <div className="load load7 dele2"></div>
+            <div className="load load8 dele2"></div>
+            <div className="load load9 dele2"></div>
           </div>
         </div>
       </div>
