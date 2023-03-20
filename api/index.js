@@ -24,7 +24,7 @@ app.use(
 app.use(
   require("cors")({
     origin: [
-      "https://medium-clone-rouge-seven.vercel.app",
+      "https://medium-clone-phi-ashy.vercel.app",
       "http://localhost:3000",
     ],
     credentials: true,
