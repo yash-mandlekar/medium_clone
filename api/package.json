@@ -2,9 +2,9 @@
     "name": "larger",
     "version": "1.0.0",
     "description": "Blogging App",
-    "main": "server.js",
+    "main": "index.js",
     "scripts": {
-        "start": "node server.js",
+        "start": "nodemon index.js",
         "server": "npx nodemon",
         "client-install": "npm install --prefix views",
         "client": "npm start --prefix views",
