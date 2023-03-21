@@ -134,13 +134,7 @@
   display: flex;
   justify-content: space-between;
 }
-.btn-cnt2 {
-  margin: 0 auto;
-  align-self: center;
-  width: 60%;
-  display: flex;
-  justify-content: space-around;
-}
+
 .submit-btn {
   font-size: 1.5vmax;
   width: 100%;

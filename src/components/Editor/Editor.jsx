@@ -5,7 +5,7 @@ import { EDITOR_JS_TOOLS } from "../constants";
 import { asynccreateblog, asyncloadblogs } from "../../store/userActions";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+import "./Editor.css";
 const ReactEditorJS = createReactEditorJS();
 
 function Editor() {
@@ -75,7 +75,7 @@ function Editor() {
           " /><figcaption>" +
           element.data.caption +
           "</figcaption>";
-        }
+      }
     });
 
     dispatch(asynccreateblog({ data: blog }));
@@ -92,9 +92,12 @@ function Editor() {
         placeholder="Type Here..."
       />
       <div className="btn-cnt2">
-
-      <button className="submit-btn" onClick={handleSave}>Publish</button>
-      <button className="submit-btn" onClick={handleClear}>Clear</button>
+        <button className="submit-btn" onClick={handleSave}>
+          Publish
+        </button>
+        <button className="submit-btn" onClick={handleClear}>
+          Clear
+        </button>
       </div>
     </div>
   );
