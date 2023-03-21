@@ -12,8 +12,8 @@ const HomePage = () => {
         <LoggedInPage />
       ) : (
         <>
-          {/* <Header />  */}
-          {/* <Trending />  */}
+          <Header /> 
+          <Trending /> 
           <Article />
         </>
       )}
