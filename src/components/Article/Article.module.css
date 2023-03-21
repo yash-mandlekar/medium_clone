@@ -48,6 +48,8 @@
 }
 .content > h1 {
   font-size: 1.5vmax;
+
+  font-weight: 800;
   padding: 1vh 0;
 }
 .content img {

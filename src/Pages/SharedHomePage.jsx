@@ -19,7 +19,7 @@ const SharedHomePage = () => {
         >
           {isLoggedIn ? <LoggedInNavbar /> : <Navbar />}
         </div>
-        <div className="outlets" style={{ paddingTop: "6vmax" }}>
+        <div className="outlets" style={{ paddingTop: "7vh" }}>
           <Outlet />
         </div>
       </>

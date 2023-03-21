@@ -11,7 +11,6 @@ import {
 } from "../../../store/userActions";
 import {
   AiFillLike,
-  AiOutlineEdit,
   AiOutlineLike,
   AiOutlineShareAlt,
   AiOutlineWhatsApp,
@@ -61,45 +60,45 @@ const Dashboard = () => {
     navigator.clipboard.writeText(`http://localhost:3000/story/${id}`);
     notify("Link copied to clipboard");
   };
+  const handleOverlay = (e) => {
+    if(e.target.className==="overlay"){
+      setoverlay(false);
+    }
+  }
   return (
     <>
       {overlay && (
-        <div className="overlay">
-          <form onSubmit={handleupdateprofile} className="card">
-            <h1>Profile Information</h1>
-            <input
-              type="text"
-              defaultValue={singleuser.username}
-              placeholder="Username"
-              name="username"
-              id=""
-            />
-            <input
-              type="text"
-              defaultValue={singleuser.bio}
-              placeholder="Bio"
-              name="bio"
-              id=""
-            />
-            <div className="btn-cnt">
-              <button className="submit-btn" type="submit">
-                update
-              </button>
-              <button
-                onClick={() => setoverlay(false)}
-                className="submit-btn"
-                type="button"
-              >
-                cancel
-              </button>
-            </div>
-          </form>
+        <div className="overlay" onClick={handleOverlay}>
+          <div className="card">
+            <span className="title">Profile Information</span>
+            <form onSubmit={handleupdateprofile} className="form">
+              <div className="group">
+                <input placeholder=" " defaultValue={singleuser?.username} name="username" type="text" required />
+                <label htmlFor="username">Username</label>
+              </div>
+              <div className="group">
+                <textarea
+                  placeholder=" "
+                  id="bio"
+                  name="bio"
+                  rows="5"
+                  defaultValue={singleuser?.bio}
+                  required
+                ></textarea>
+                <label htmlFor="bio">Bio</label>
+              </div>
+              <button type="submit">Submit</button>
+              {/* <button>Cancel</button> */}
+            </form>
+          </div>
         </div>
       )}
       <div className={`${module.wrap}`}>
         <div className={`${module.left}`}>
           <div className={`${module.top}`}>
-            <h1>{singleuser?.username}</h1>
+            <h1>
+              {singleuser?.username?.charAt(0).toUpperCase()}{singleuser?.username?.slice(1)}
+            </h1>
             {singleuser?._id === user?._id && (
               <>
                 <h1
@@ -109,7 +108,7 @@ const Dashboard = () => {
                   <RiMoreFill />
                 </h1>
                 {handleDrop && (
-                  <div className={`${module.drop_down} cp` }>
+                  <div className={`${module.drop_down} cp`}>
                     <h6 onClick={handleCopy}>Copy link to profile</h6>
                   </div>
                 )}
@@ -143,7 +142,7 @@ const Dashboard = () => {
               </div>
               <div
                 className={`${module.lists_card} cp`}
-                dangerouslySetInnerHTML={createMarkup(story.data)}
+                dangerouslySetInnerHTML={createMarkup(story?.data)}
                 onClick={() => navigate(`/story/${story._id}`)}
               ></div>
               <div className={`${module.share_buttons}`}>
@@ -171,28 +170,24 @@ const Dashboard = () => {
                       url={`http://localhost:3000/story/${story._id}`}
                       title={story.data}
                     >
-                      <AiOutlineWhatsApp  size={21} cursor="pointer" />
+                      <AiOutlineWhatsApp size={21} cursor="pointer" />
                     </WhatsappShareButton>
                   </div>
                   <div className="share">
-
-                  <AiOutlineShareAlt
-                    onClick={() => handleShare(story._id)}
-                    size={21}
-                    cursor="pointer"
-                    
+                    <AiOutlineShareAlt
+                      onClick={() => handleShare(story._id)}
+                      size={21}
+                      cursor="pointer"
                     />
-                    </div>
-                    <div className="delete">
-
-                  <RiDeleteBinLine
-                    title="delete"
-                    onClick={() => handleDelete(story._id)}
-                    size={21}
-                    cursor="pointer"
-                    
+                  </div>
+                  <div className="delete">
+                    <RiDeleteBinLine
+                      title="delete"
+                      onClick={() => handleDelete(story._id)}
+                      size={21}
+                      cursor="pointer"
                     />
-                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -206,7 +201,9 @@ const Dashboard = () => {
               alt=""
             />
           </div>
-          <h4>{singleuser?.username}</h4>
+          <h4>
+          {singleuser?.username?.charAt(0).toUpperCase()}{singleuser?.username?.slice(1)}
+          </h4>
           {singleuser?._id === user?._id ? (
             <h5 className="cp" onClick={() => setoverlay(true)}>
               Edit profile
