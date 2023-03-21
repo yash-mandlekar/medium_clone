@@ -220,6 +220,7 @@ exports.updatestories = async (req, res) => {
     res.status(500).json({ message: error });
   }
 };
+
 exports.likestories = async (req, res) => {
   try {
     const { id } = req.params;
@@ -244,27 +245,21 @@ exports.likestories = async (req, res) => {
 exports.followunfollow = async (req, res) => {
   const user = await User.findById(req.user._id).exec();
   const followUser = await User.findById(req.params.id).exec();
-  if (user.following.includes(req.params.id)) {
-    user.following.pop(req.params.id);
-    followUser.followers.pop(req.user.id);
-    await user.save();
-    await followUser.save();
-    res.status(200).json({
-      status: "success",
-      message: "Unfollowed successfully",
-      following: user.following,
-    });
+  var index = user.following.indexOf(followUser._id);
+  if (index === -1) {
+    user.following.push(followUser._id);
+    followUser.followers.push(user._id);
   } else {
-    user.following.push(req.params.id);
-    followUser.followers.push(req.user.id);
-    await user.save();
-    await followUser.save();
-    res.status(200).json({
-      status: "success",
-      message: "Followed successfully",
-      following: user.following,
-    });
+    user.following.splice(index, 1);
+    followUser.followers.splice(index, 1);
   }
+  await user.save();
+  await followUser.save();
+  res.status(200).json({
+    status: "success",
+    message: "successfully Done",
+    following: user.following,
+  });
 };
 
 exports.listblog = async (req, res) => {

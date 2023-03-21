@@ -205,7 +205,7 @@ const Picks = () => {
               <div key={i} className={module.rec_card}>
                 <img src={`${single?.avtar?.url}`} alt="" />
                 <div className="desc">
-                  <h4>{single.username}</h4>
+                  <h4>{single.username.split("@")[0]}</h4>
                   <h6>{single.bio}</h6>
                 </div>
                 <button

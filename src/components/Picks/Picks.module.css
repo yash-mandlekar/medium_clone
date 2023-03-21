@@ -73,7 +73,6 @@
   border-radius: 50%;
 }
 .follow_btn {
-  background-color: transparent;
   border: 1px solid grey;
   padding: 0.5vmax 1vmax;
   display: flex;
