@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Roundedbtn from "../Ui/Roundedbtn";
 import module from "./Article.module.css";
-const Article = ({ coverWidth, coverTop, posterWidth, width }) => {
+const Article = ({ width }) => {
   const { isLoggedIn, blogs } = useSelector((store) => store.user);
   const navigate = useNavigate();
 

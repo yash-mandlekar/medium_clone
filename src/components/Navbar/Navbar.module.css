@@ -56,7 +56,7 @@
 }
 
 .Lnav > svg {
-  height: 1.6vw;
+  height: 1.6vmax;
 }
 
 .Lleft {
@@ -67,9 +67,8 @@
 }
 
 .searchBar {
-  width: 27vmax;
+  width: 25vmax;
   height: 5vh;
-
   border-radius: 20px;
   background-color: #fff;
   padding-left: 0.8vmax;
@@ -86,23 +85,24 @@
   border: none;
   border-radius: 20px;
 }
-
+.searchIcon,.noti,.pencil{
+  font-size: 1.8vmax;
+  color: grey;
+}
 .Lwrite {
-  width: 5vmax;
+  /* width: 5vmax; */
   display: flex;
   align-items: center;
   gap: 10px;
   height: fit-content;
 }
-
 .Lright {
-  width: 20vmax;
   color: #525252;
-
+  width: 16vmax;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 30px;
+  /* padding: 0 30px; */
   position: relative;
 }
 .Lright > a{
@@ -128,14 +128,13 @@
 
 .dropDown {
   position: absolute;
-  width: 20vmax;
+  width: 25vmax;
   right: 2vmax;
   top: 4vmax;
   background-color: rgb(243, 241, 241);
   border-radius: 2px;
   padding: 1.8vmax 2vmax;
   border: 1px solid rgb(236, 236, 236);
-  font-size: 1vw;
   /* transition: all cubic-bezier(0.19, 1, 0.22, 1) 2s; */
 }
 

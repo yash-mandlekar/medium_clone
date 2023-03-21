@@ -1,7 +1,4 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
-import Header from "../components/Header/Header";
-import LoggedInNavbar from "../components/Navbar/LoggedInNavbar";
 import { IoAddOutline } from "react-icons/io5";
 import Article from "../components/Article/Article";
 import Picks from "../components/Picks/Picks";

@@ -9,20 +9,20 @@
   width: 60vmax;
   display: flex;
   justify-content: center;
-  height: 87vh;
+  height: 89.5vh;
+  padding-top: 4vh;
 }
 
 .right {
   width: 30vmax;
-  height: 87vh;
+  height: 89.5vh;
   overflow-y: scroll;
-  padding: 1vmax 1vmax;
+  padding: 1vh 1vmax;
 }
 
 .topBar {
-  width: 50vmax;
-  height: 9vh;
-  padding-top: 2vh;
+  width: 50%;
+  padding: 1vmax 0 1.5vmax 0;
   background-color: rgb(255, 255, 255);
   border-bottom: 1px solid rgb(175, 175, 175);
   display: flex;
@@ -35,4 +35,15 @@
 .articles {
   margin-top: 1.5vh;
   margin-left: -7vw;
+}
+@media screen and (max-width: 768px) {
+  .topBar{
+    width: 90%;
+  }
+  .left{
+    padding-top: 5vh;
+  }
+  .right{
+   display: none;
+  }
 }

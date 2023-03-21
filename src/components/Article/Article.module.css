@@ -1,5 +1,5 @@
 .wrapper {
-  padding-top: 5vh;
+  padding-top: 1vh;
   display: flex;
   justify-content: center;
   gap: 8vmax;
@@ -16,7 +16,7 @@
   /* justify-content: center; */
   overflow-y: scroll;
   max-width: inherit;
-  gap: 2vw;
+  gap: 2vmax;
 }
 .articles::-webkit-scrollbar {
   background-color: rgb(255, 248, 248);
@@ -48,12 +48,12 @@
 }
 .content > h1 {
   font-size: 1.5vmax;
-  padding: 1vmax 0;
+  padding: 1vh 0;
 }
 .content img {
   width: 50%;
   object-fit: cover;
-  padding: 1vmax 0;
+  padding: 1vh 0;
   float: right;
 }
 .footer {
@@ -63,7 +63,7 @@
 }
 
 .links {
-  padding: 1.2vmax 3vmax 0 0;
+  padding: 1.2vh 3vmax 0 0;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5vmax;
@@ -110,6 +110,8 @@ hr {
 @media screen and (max-width: 768px) {
   .wrapper {
     flex-direction: column-reverse;
+    justify-content: flex-end;
+    gap: 0;
   }
   .categories_links {
     width: 90%;
