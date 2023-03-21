@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Roundedbtn from "../Ui/Roundedbtn";
 import module from "./Picks.module.css";
+import Axios from "../../axios";
+import { TbLoader2 } from 'react-icons/tb';
 const Picks = () => {
   const { users, user } = useSelector((store) => store.user);
-  console.log(users);
+  const [following, setfollowing] = useState(user?.following);
+  const [loading, setloading] = useState();
+  const handleFollow = async (id, i) => {
+    try {
+      setloading(i);
+      const { data } = await Axios.get(`/followUnfollow/${id}`);
+      setfollowing(data.following);
+      setloading();
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <>
       <div className={module.picks}>
@@ -186,23 +199,36 @@ const Picks = () => {
 
       <div className={module.follow_recomand}>
         <h4>Who to follow</h4>
-        {users?.map((single,i) => 
-          single._id !== user?._id &&
-        (
-          <div key={i} className={module.rec_card}>
-            <img
-              src={`${single?.avtar?.url}`}
-              alt=""
-            />
-            <div className="desc">
-              <h4>{single.username}</h4>
-              <h6>{single.bio}</h6>
-            </div>
-            <button className={`${module.new_list_btn} ${module.follow_btn}`}>
-              follow
-            </button>
-          </div>
-        ))}
+        {users?.map(
+          (single, i) =>
+            single._id !== user?._id && (
+              <div key={i} className={module.rec_card}>
+                <img src={`${single?.avtar?.url}`} alt="" />
+                <div className="desc">
+                  <h4>{single.username}</h4>
+                  <h6>{single.bio}</h6>
+                </div>
+                <button
+                  onClick={() => handleFollow(single._id, i)}
+                  className={`${module.new_list_btn} ${module.follow_btn}`}
+                  style={{
+                    backgroundColor: following?.includes(single._id)
+                      ? "black"
+                      : "white",
+                    color: following?.includes(single._id) ? "white" : "black",
+                  }}
+                >
+                  {loading && loading === i ? (
+                    <TbLoader2 className="followLoad" />
+                  ) : following?.includes(single._id) ? (
+                    "Following"
+                  ) : (
+                    "Follow"
+                  )}
+                </button>
+              </div>
+            )
+        )}
       </div>
     </>
   );

@@ -52,10 +52,8 @@ exports.getusers = async (req, res, next) => {
   // res.json({})
 };
 
-
 exports.updateprofile = async (req, res, next) => {
   try {
-    console.log(req.user);
     const user = await User.findOneAndUpdate({ _id: req.user._id }, req.body, {
       new: true,
     }).exec();
@@ -240,6 +238,32 @@ exports.likestories = async (req, res) => {
     }
   } catch (error) {
     res.status(500).json({ message: error });
+  }
+};
+
+exports.followunfollow = async (req, res) => {
+  const user = await User.findById(req.user._id).exec();
+  const followUser = await User.findById(req.params.id).exec();
+  if (user.following.includes(req.params.id)) {
+    user.following.pop(req.params.id);
+    followUser.followers.pop(req.user.id);
+    await user.save();
+    await followUser.save();
+    res.status(200).json({
+      status: "success",
+      message: "Unfollowed successfully",
+      following: user.following,
+    });
+  } else {
+    user.following.push(req.params.id);
+    followUser.followers.push(req.user.id);
+    await user.save();
+    await followUser.save();
+    res.status(200).json({
+      status: "success",
+      message: "Followed successfully",
+      following: user.following,
+    });
   }
 };
 

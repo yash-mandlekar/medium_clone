@@ -128,6 +128,17 @@
   background-color: #27408b;
 }
 
+.followLoad{
+  animation: rotate 1s linear infinite;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 .btn-cnt {
   width: 100%;

@@ -44,6 +44,8 @@ const userModel = new mongoose.Schema(
         url: "",
       },
     },
+    followers: [{ type: mongoose.Schema.Types.ObjectId, ref: "user" }],
+    following: [{ type: mongoose.Schema.Types.ObjectId, ref: "user" }],
     lists: [{ type: mongoose.Schema.Types.ObjectId, ref: "blog" }],
     stories: [{ type: mongoose.Schema.Types.ObjectId, ref: "blog" }],
     passwordResetToken: 0,

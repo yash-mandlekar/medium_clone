@@ -3,7 +3,6 @@ const router = express.Router();
 const {
   homepage,
   signup,
-  signin,
   signout,
   sendmail,
   forgetpassword,
@@ -20,7 +19,8 @@ const {
   likestories,
   updateprofile,
   singlestories,
-  getusers
+  getusers,
+  followunfollow
 } = require("../controllers/indexController");
 const { isLoggedIn } = require("../utils/auth");
 
@@ -42,8 +42,6 @@ router.put("/update-profile",isLoggedIn, updateprofile);
 router.get("/signout", isLoggedIn, signout);
 
 // /reset-password
-// update/:id
-// delete/:id
 
 // get /send-mail - logout user
 router.get("/send-mail", sendmail);
@@ -76,6 +74,9 @@ router.put("/update-stories/:id", isLoggedIn, updatestories);
 
 // get /like/:id - update blog of user
 router.get("/like/:id", isLoggedIn, likestories);
+
+// @api /user/followUnfollow POST follow user
+router.get("/followUnfollow/:id", isLoggedIn, followunfollow);
 
 // get /singleuser/:username - show all blogs of user
 router.get("/singleuser/:username", singleUser);
