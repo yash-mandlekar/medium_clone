@@ -201,26 +201,26 @@ const Picks = () => {
         <h4>Who to follow</h4>
         {users?.map(
           (single, i) =>
-            single._id !== user?._id && (
+            single?._id !== user?._id && (
               <div key={i} className={module.rec_card}>
                 <img src={`${single?.avtar?.url}`} alt="" />
                 <div className="desc">
-                  <h4>{single.username.split("@")[0]}</h4>
-                  <h6>{single.bio}</h6>
+                  <h4>{single?.username.split("@")[0]}</h4>
+                  <h6>{single?.bio}</h6>
                 </div>
                 <button
                   onClick={() => handleFollow(single._id, i)}
                   className={`${module.new_list_btn} ${module.follow_btn}`}
                   style={{
-                    backgroundColor: following?.includes(single._id)
+                    backgroundColor: following?.includes(single?._id)
                       ? "black"
                       : "white",
-                    color: following?.includes(single._id) ? "white" : "black",
+                    color: following?.includes(single?._id) ? "white" : "black",
                   }}
                 >
                   {loading && loading === i ? (
                     <TbLoader2 className="followLoad" />
-                  ) : following?.includes(single._id) ? (
+                  ) : following?.includes(single?._id) ? (
                     "Following"
                   ) : (
                     "Follow"
