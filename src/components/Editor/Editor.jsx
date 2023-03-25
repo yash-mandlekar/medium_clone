@@ -24,7 +24,7 @@ function Editor() {
     savedData.blocks.forEach((element) => {
       // console.log(element);
       if (element.type === "paragraph") {
-        blog += "<p>" + element.data.text + "</p>";
+        blog += "<p className=para>" + element.data.text + "</p>";
       }
       if (element.type === "header") {
         blog +=

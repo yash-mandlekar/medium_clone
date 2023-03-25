@@ -34,12 +34,12 @@ const App = () => {
           <Route index element={<HomePage />} />
           <Route path="/user/:username" element={<Dashboard />} />
           <Route path="/story/:id" element={<SingleStory />} />
+          {isLoggedIn && <Route path="new-story" element={<Editor />} />}
           {/* <Route path="lists" element={<Lists />} /> */}
           {/* <Route path="settings" element={<SharedSettingsPage />}>
             <Route index element={<Settings />} />
             <Route path="security" element={<Security />} />
           </Route> */}
-          {isLoggedIn && <Route path="new-story" element={<Editor />} />}
           {/* {isLoggedIn && <Route path="edit-story/:id" element={<Editor />} />} */}
         </Route>
         <Route path="/*" element={<>not found</>} />

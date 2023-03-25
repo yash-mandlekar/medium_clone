@@ -61,10 +61,10 @@ const Dashboard = () => {
     notify("Link copied to clipboard");
   };
   const handleOverlay = (e) => {
-    if(e.target.className==="overlay"){
+    if (e.target.className === "overlay") {
       setoverlay(false);
     }
-  }
+  };
   return (
     <>
       {overlay && (
@@ -73,7 +73,13 @@ const Dashboard = () => {
             <span className="title">Profile Information</span>
             <form onSubmit={handleupdateprofile} className="form">
               <div className="group">
-                <input placeholder=" " defaultValue={singleuser?.username} name="username" type="text" required />
+                <input
+                  placeholder=" "
+                  defaultValue={singleuser?.username}
+                  name="username"
+                  type="text"
+                  required
+                />
                 <label htmlFor="username">Username</label>
               </div>
               <div className="group">
@@ -97,7 +103,8 @@ const Dashboard = () => {
         <div className={`${module.left}`}>
           <div className={`${module.top}`}>
             <h1>
-              {singleuser?.username?.charAt(0).toUpperCase()}{singleuser?.username?.slice(1)}
+              {singleuser?.username?.charAt(0).toUpperCase()}
+              {singleuser?.username?.slice(1)}
             </h1>
             {singleuser?._id === user?._id && (
               <>
@@ -181,12 +188,15 @@ const Dashboard = () => {
                     />
                   </div>
                   <div className="delete">
-                    <RiDeleteBinLine
+                    {singleuser?._id === user?._id ? (
+                      <RiDeleteBinLine
                       title="delete"
                       onClick={() => handleDelete(story._id)}
                       size={21}
                       cursor="pointer"
                     />
+                    ) : ""}
+                    
                   </div>
                 </div>
               </div>
@@ -202,7 +212,8 @@ const Dashboard = () => {
             />
           </div>
           <h4>
-          {singleuser?.username?.charAt(0).toUpperCase()}{singleuser?.username?.slice(1)}
+            {singleuser?.username?.charAt(0).toUpperCase()}
+            {singleuser?.username?.slice(1)}
           </h4>
           {singleuser?._id === user?._id ? (
             <h5 className="cp" onClick={() => setoverlay(true)}>

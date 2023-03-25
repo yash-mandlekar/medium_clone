@@ -24,7 +24,7 @@ const SingleStory = () => {
   }
 
   const handleLike = (_id) => {
-    dispatch(asynclikeblog(_id,true));
+    dispatch(asynclikeblog(_id, true));
   };
 
   const handleDelete = (_id) => {
@@ -94,22 +94,26 @@ const SingleStory = () => {
               <span>{singleblog?.comments.length} comments</span>
             </div>
           </div>
-          <div className={`${module.buttons}`}>
-            <RiDeleteBinLine
-              title="delete"
-              onClick={() => handleDelete(singleblog?._id)}
-              size={21}
-              color="grey"
-              cursor="pointer"
-            />
-            <AiOutlineEdit
-              // onClick={() => Dispatch(loadupdateblog(story))}
-              title="edit"
-              size={21}
-              color="grey"
-              cursor="pointer"
-            />
-          </div>
+          {singleblog?.author?._id === user?._id ? (
+            <div className={`${module.buttons}`}>
+              <RiDeleteBinLine
+                color="grey"
+                title="delete"
+                onClick={() => handleDelete(singleblog._id)}
+                size={21}
+                cursor="pointer"
+              />
+              <AiOutlineEdit
+                // onClick={() => Dispatch(loadupdateblog(story))}
+                title="edit"
+                size={21}
+                color="grey"
+                cursor="pointer"
+              />
+            </div>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </div>

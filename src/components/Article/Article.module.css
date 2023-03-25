@@ -103,8 +103,11 @@ hr {
 .lef::-webkit-scrollbar-thumb {
   background-color: rgb(212, 212, 212);
 }
-.content2 p {
+.content2 p ,.content ol{
   display: none;
+}
+.content2 p:nth-child(1) {
+  display: initial !important;
 }
 .content2 code {
   display: none;
