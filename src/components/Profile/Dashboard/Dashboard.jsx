@@ -18,11 +18,14 @@ import {
 import { FaRegComment } from "react-icons/fa";
 import { WhatsappShareButton } from "react-share";
 import { toast } from "react-toastify";
+import Axios from "../../../axios";
 const Dashboard = () => {
+  const { singleuser, user, blogloading } = useSelector((state) => state.user);
   const notify = (msg) => toast(msg ?? "Something went wrong");
   const [handleDrop, sethandleDrop] = useState(false);
   const [overlay, setoverlay] = useState(false);
-  const { singleuser, user, blogloading } = useSelector((state) => state.user);
+  const [following, setFollowing] = useState(user?.following);
+  const [loading, setLoading] = useState(false);
   const { username } = useParams();
   const Dispatch = useDispatch();
   const navigate = useNavigate();
@@ -63,6 +66,16 @@ const Dashboard = () => {
   const handleOverlay = (e) => {
     if (e.target.className === "overlay") {
       setoverlay(false);
+    }
+  };
+  const handleFollow = async (id, i) => {
+    try {
+      setLoading(true);
+      const { data } = await Axios.get(`/followUnfollow/${id}`);
+      setFollowing(data.following);
+      setLoading(false);
+    } catch (err) {
+      console.log(err);
     }
   };
   return (
@@ -190,13 +203,14 @@ const Dashboard = () => {
                   <div className="delete">
                     {singleuser?._id === user?._id ? (
                       <RiDeleteBinLine
-                      title="delete"
-                      onClick={() => handleDelete(story._id)}
-                      size={21}
-                      cursor="pointer"
-                    />
-                    ) : ""}
-                    
+                        title="delete"
+                        onClick={() => handleDelete(story._id)}
+                        size={21}
+                        cursor="pointer"
+                      />
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
               </div>
@@ -216,11 +230,17 @@ const Dashboard = () => {
             {singleuser?.username?.slice(1)}
           </h4>
           {singleuser?._id === user?._id ? (
-            <h5 className="cp" onClick={() => setoverlay(true)}>
+            <button onClick={() => setoverlay(true)}>
               Edit profile
-            </h5>
+            </button>
+          ) : following?.includes(singleuser?._id) ? (
+            <button className={`${module.unfollowbtn}`} onClick={() => handleFollow(singleuser?._id)}>
+              {loading ? "loading..." : "Unfollow"}
+            </button>
           ) : (
-            <h5 className="cp">Follow</h5>
+            <button className={`${module.followbtn}`} onClick={() => handleFollow(singleuser?._id)}>
+              {loading ? "loading..." : "Follow"}
+            </button>
           )}
         </div>
       </div>
