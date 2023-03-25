@@ -40,6 +40,7 @@ const Dashboard = () => {
   }
   const handleDelete = (id) => {
     Dispatch(asyncdeleteblog(id));
+    navigate("/");
   };
   const handleLike = (id) => {
     Dispatch(asynclikeblog(id));
@@ -187,8 +188,7 @@ const Dashboard = () => {
                 <div className={`${module.buttons}`}>
                   <div className="whatsapp">
                     <WhatsappShareButton
-                      url={`http://localhost:3000/story/${story._id}`}
-                      title={story.data}
+                      url={`https://medium-clone-phi-ashy.vercel.app/story/${story._id}`}
                     >
                       <AiOutlineWhatsApp size={21} cursor="pointer" />
                     </WhatsappShareButton>

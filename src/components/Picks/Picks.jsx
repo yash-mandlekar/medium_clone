@@ -3,8 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import Roundedbtn from "../Ui/Roundedbtn";
 import module from "./Picks.module.css";
 import Axios from "../../axios";
-import { TbLoader2 } from 'react-icons/tb';
+import { TbLoader2 } from "react-icons/tb";
+import { useNavigate } from "react-router-dom";
 const Picks = () => {
+  const navigate = useNavigate();
   const { users, user } = useSelector((store) => store.user);
   const [following, setfollowing] = useState(user?.following);
   const [loading, setloading] = useState();
@@ -203,14 +205,21 @@ const Picks = () => {
           (single, i) =>
             single?._id !== user?._id && (
               <div key={i} className={module.rec_card}>
-                <img src={`${single?.avtar?.url}`} alt="" />
-                <div className="desc">
+                <img
+                  src={`${single?.avtar?.url}`}
+                  alt=""
+                  onClick={() => navigate(`/user/${single?.username}`)}
+                />
+                <div
+                  className="desc cp"
+                  onClick={() => navigate(`/user/${single?.username}`)}
+                >
                   <h4>{single?.username.split("@")[0]}</h4>
                   <h6>{single?.bio}</h6>
                 </div>
                 <button
                   onClick={() => handleFollow(single._id, i)}
-                  className={`${module.new_list_btn} ${module.follow_btn}`}
+                  className={`cp ${module.new_list_btn} ${module.follow_btn}`}
                   style={{
                     backgroundColor: following?.includes(single?._id)
                       ? "black"

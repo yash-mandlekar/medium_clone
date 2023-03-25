@@ -61,7 +61,7 @@ router.get("/upload", isLoggedIn, upload);
 router.post("/create-stories", isLoggedIn, createstories);
 
 // get /show-stories - show all blogs of user
-router.get("/single-stories/:id", isLoggedIn, singlestories);
+router.get("/single-stories/:id", singlestories);
 
 // get /show-stories - show all blogs of user
 router.get("/show-stories", isLoggedIn, showstories);
