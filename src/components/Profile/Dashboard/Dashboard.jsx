@@ -19,6 +19,7 @@ import { FaRegComment } from "react-icons/fa";
 import { WhatsappShareButton } from "react-share";
 import { toast } from "react-toastify";
 import Axios from "../../../axios";
+import { TbLoader2 } from "react-icons/tb";
 const Dashboard = () => {
   const { singleuser, user, blogloading } = useSelector((state) => state.user);
   const notify = (msg) => toast(msg ?? "Something went wrong");
@@ -235,11 +236,11 @@ const Dashboard = () => {
             </button>
           ) : following?.includes(singleuser?._id) ? (
             <button className={`${module.unfollowbtn}`} onClick={() => handleFollow(singleuser?._id)}>
-              {loading ? "loading..." : "Unfollow"}
+              {loading ? <TbLoader2 className="followLoad" /> : "Unfollow"}
             </button>
           ) : (
             <button className={`${module.followbtn}`} onClick={() => handleFollow(singleuser?._id)}>
-              {loading ? "loading..." : "Follow"}
+              {loading ? <TbLoader2 className="followLoad" /> : "Follow"}
             </button>
           )}
         </div>

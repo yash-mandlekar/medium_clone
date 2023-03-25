@@ -1,15 +1,22 @@
 import React from "react";
+import { AiOutlineShareAlt, AiOutlineWhatsApp } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { WhatsappShareButton } from "react-share";
+import { toast } from "react-toastify";
 import Roundedbtn from "../Ui/Roundedbtn";
 import module from "./Article.module.css";
 const Article = ({ width }) => {
   const { isLoggedIn, blogs } = useSelector((store) => store.user);
   const navigate = useNavigate();
-
+  const notify = (msg) => toast(msg ?? "Something went wrong");
   function createMarkup(data) {
     return { __html: data };
   }
+  const handleShare = (id) => {
+    navigator.clipboard.writeText(`http://localhost:3000/story/${id}`);
+    notify("Link copied to clipboard");
+  };
   return (
     <>
       <div className={`${module.wrapper}`}>
@@ -48,18 +55,22 @@ const Article = ({ width }) => {
                       new Date(blog?.createdAt).getMinutes() +
                       " minutes ago"}
                 </h6>
-                <svg
-                  width="25"
-                  height="25"
-                  viewBox="0 0 25 25"
-                  fill="none"
-                  className="lz"
-                >
-                  <path
-                    d="M18 2.5a.5.5 0 0 1 1 0V5h2.5a.5.5 0 0 1 0 1H19v2.5a.5.5 0 1 1-1 0V6h-2.5a.5.5 0 0 1 0-1H18V2.5zM7 7a1 1 0 0 1 1-1h3.5a.5.5 0 0 0 0-1H8a2 2 0 0 0-2 2v14a.5.5 0 0 0 .8.4l5.7-4.4 5.7 4.4a.5.5 0 0 0 .8-.4v-8.5a.5.5 0 0 0-1 0v7.48l-5.2-4a.5.5 0 0 0-.6 0l-5.2 4V7z"
-                    fill="#292929"
-                  ></path>
-                </svg>
+                <div className="d-flex">
+                  <div className="whatsapp">
+                    <WhatsappShareButton
+                      url={`https://medium-clone-phi-ashy.vercel.app/story/${blog._id}`}
+                    >
+                      <AiOutlineWhatsApp size={21} cursor="pointer" />
+                    </WhatsappShareButton>
+                  </div>
+                  <div className="share">
+                    <AiOutlineShareAlt
+                      onClick={() => handleShare(blog._id)}
+                      size={21}
+                      cursor="pointer"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           ))}

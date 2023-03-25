@@ -117,7 +117,7 @@
   padding: 4vh 3vmax;
   display: flex;
   flex-direction: column;
-  align-items: baseline;
+  align-items: center;
   gap: 2.5vh;
   border-left: 1px solid rgb(219, 219, 219);
 }
@@ -133,7 +133,6 @@
   object-fit: cover;
   border-radius: 50%;
 }
-
 .by_who {
   display: flex;
   align-items: center;
@@ -147,6 +146,7 @@
 }
 .followbtn,.unfollowbtn{
   background-color: #ffc017;
+  width: 70%;
   border: none;
   border-radius: 50px;
   padding: 0.5vmax 1vmax;

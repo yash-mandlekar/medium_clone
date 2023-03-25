@@ -164,7 +164,10 @@
   padding-top: 3vh;
   margin: 0 auto;
 }
-
+.d-flex{
+  display: flex;
+  gap: 1vmax;
+}
 .whatsapp:hover {
   color: green;
 }
